@@ -11,6 +11,9 @@
     enable = true;
     initExtra = ''
       fastfetch
+      if ! command -v rustc &>/dev/null; then
+        echo -e "\e[1;31m⚠ Rust is not installed! Run: rustup toolchain install stable\e[0m"
+      fi
     '';
     shellAliases = {
       hconf = "nvim /home/jeroen/.config/home-manager/home.nix";
